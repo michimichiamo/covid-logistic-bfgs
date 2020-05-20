@@ -36,8 +36,8 @@ The function returns a tuple `theta_history, cost_history, niter, success` in wh
 
 ## Results
 These are the results I obtained choosing as input parameters firstly `max_iter = 20000` and then `max_iter = 30000`, and `epsilon = 0` in both cases (i.e. I ended up performing no check for convergence: empirically, I observed it never dropping below ~1.747\*10<sup>-5</sup>).
-The _Logistic fit_ graphs show the _data points_ as orange dots and the _logistic regression_ as a blue dashed line: at a glance, the curve fits quite well the data.
-As you can immediately notice from the _Cost history_ graphs, there is no meaningful improvement in terms of value of the loss function after ~15000 iterations.
+The **Logistic fit** graphs show the _data points_ as orange dots and the _logistic regression_ as a blue dashed line: at a glance, the curve fits quite well the data.
+As you can immediately notice from the **Cost history** graphs, there is no meaningful improvement in terms of value of the loss function after ~15000 iterations.
 
 ![Fit_20000](https://github.com/michimichiamo/covid-logistic-bfgs/blob/master/Fit_20000.png)
 ![Cost_20000](https://github.com/michimichiamo/covid-logistic-bfgs/blob/master/Cost_20000.png)
