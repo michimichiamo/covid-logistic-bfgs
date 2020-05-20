@@ -26,9 +26,10 @@ The function takes advantage of the library `scipy.optimize`, deploying function
 <br>Firstly, a `BFGS` object is created invoking the constructor: this object allows to efficiently store the (inverse) _approximate_ **Hessian matrix** of the function and perform computations (such as the _dot product_ with a vector), thus keeping track of the updates.
 <br>Then, the recursive loop does the job:
 - at each iteration `n`, the initial guess <code>th<sub>n</sub></code> is stored along with the gradient <code>g<sub>n</sub></code>, computed at its position;
-- the **search direction** `d` is computed as dot product between <code>H<sub>n</sub><sup>-1</sup></code> and <code>g<sub>n</sub></code>, where the former is the current approximation of the inverse Hessian matrix and the latter is the 
-- and the **step-size** `α` are computed
-- accordingly, the array of the parameters `th[n]` is updated; the new approximation of the Hessian is computed via the method `BFGS.update`, which takes as inputs both the difference in. The loop is stopped whenever the value of `loss(x,θ)` is below `epsilon` or when `max_iter` is reached.
+- the **search direction** `d` is computed as dot product between <code>H<sub>n</sub><sup>-1</sup></code> and <code>g<sub>n</sub></code>, where the former is the current approximation of the inverse Hessian matrix;
+- the **step-size** `α` is computed through `line_search`, which is `scipy.optimize`'s implementation of a backtracking line search algorithm: essentially, it computes the non-negative parameter α that minimizes the expression f(x<sub>n</sub> - αd);
+- accordingly to these updates, the array of the parameters <code>th<sub>n+1</sub></code> is computed along with the gradient <code>g<sub>n+1</sub></code>, computed at its position; the new approximation of the Hessian is obtained via the method `BFGS.update`, which takes as inputs the differences <code>th<sub>n+1</sub> - th<sub>n</sub></code> and <code>g<sub>n+1</sub> - g<sub>n</sub></code>;
+- the loop is stopped whenever the value of `loss(x,θ)` is below `epsilon` or when `max_iter` is reached.
 ### Return
 The function returns a tuple `theta_history, cost_history, niter, success` in which the following is stored: the parameters history, the loss function values history, the number of iterations performed, information about the convergence (i.e. whether the loss function of θ<sup>*</sup> is below `epsilon` or not).
 
