@@ -50,7 +50,7 @@ Loss:  104709.8770002242
 Loss (rescaled data):  1.7472241874665985e-05
 Converged: False, max_iter reached.
 ```
-![Fit_30000](https://github.com/michimichiamo/covid-logistic-bfgs/blob/master/images/Cost_30000.png)
+![Fit_30000](https://github.com/michimichiamo/covid-logistic-bfgs/blob/master/images/Fit_30000.png)
 ![Cost_30000](https://github.com/michimichiamo/covid-logistic-bfgs/blob/master/images/Cost_30000.png)
 ```
 Results:
