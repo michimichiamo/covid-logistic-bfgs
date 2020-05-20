@@ -1,7 +1,7 @@
 # covid-logistic-bfgs
 Logistic regression on COVID-19 data through BFGS algorithm
 
-This repository contains a **Python** project I developed for the Optimization exam in the AI Master Course I'm attending. The aim of the project is to provide an implementation of the **BFGS algorithm** and to apply it to a particular case of study: I decided to perform a **logistic regression** on the official COVID-19 data (provided by Protezione Civile and available on GitHub at this [link](https://github.com/pcm-dpc/COVID-19)). I worked on data referring to the whole country, included in folder _dati-andamento-nazionale_.
+This repository contains a **Python** project I developed for the Optimization exam in the AI Master Course I'm attending. The aim of the project is to provide an implementation of the **BFGS algorithm** and to apply it to a particular case of study: I decided to perform a **logistic regression** on the official COVID-19 data (provided by Protezione Civile and available on GitHub at this [link](https://github.com/pcm-dpc/COVID-19)). I worked on data referring to the whole country, included in folder _dati-andamento-nazionale_: I reuploaded the folder on this repository for ease of use.
 
 ## Model
 I modelled the early evolution of COVID-19 as a logistic function with 6 parameters:
