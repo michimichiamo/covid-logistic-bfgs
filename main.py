@@ -63,16 +63,16 @@ def  BFGS_algorithm(obj_fun, theta0, max_iter=2e04, epsilon=0):
     th.append(theta0)
     c.append(obj_fun(theta0))
     niter = max_iter
-    converged = (False, "max_iter reached.")
+    success = (False, "max_iter reached.")
     #Iteration
     for n in range(max_iter):
         th_0 = th[n]
         g0 = gradient(th_0)
         #If loss<epsilon, converged
+        #If epsilon=0, no check for convergence
         if (epsilon > 0) and (obj_fun(th_0) < epsilon):
             niter = n
-            converged = (True, "Loss = {}".format(obj_fun(th_0)))
-            "Converged."
+            success = (True, "Loss = {}".format(obj_fun(th_0)))
             break
         #Compute search direction
         d = bfgs.dot(g0)
@@ -87,7 +87,7 @@ def  BFGS_algorithm(obj_fun, theta0, max_iter=2e04, epsilon=0):
         #Update inverse hessian
         bfgs.update(th_1-th_0, g1-g0)
     print("Exiting.")
-    return th,c,niter,converged
+    return th,c,niter,success
 
 
 
@@ -98,8 +98,8 @@ epsilon = 0
 
 
 
-#Compute results: theta_history, cost_history, niter, converged
-theta_history, cost_history, niter, converged =  BFGS_algorithm(loss,theta0,max_iter,epsilon)
+#Compute results: theta_history, cost_history, niter, success
+theta_history, cost_history, niter, success =  BFGS_algorithm(loss,theta0,max_iter,epsilon)
 theta = theta_history[-1]
 
 
@@ -111,7 +111,7 @@ print("Number of iterations: ", niter)
 print("Theta: ", theta)
 print("Loss: ", loss_c(theta))
 print("Loss (rescaled data): ",loss(theta))
-print("Converged: {}, {}".format(*converged))
+print("Converged: {}, {}".format(*success))
 
 
 
@@ -119,11 +119,12 @@ print("Converged: {}, {}".format(*converged))
 print("\nPlotting...")
 
 #Fit
-plt.scatter(X, current, color='orange')
-plt.plot(X, (theta[0]/(theta[1]+theta[2]*np.exp(-theta[3]*(X-theta[4])))+theta[5])*(np.max(current)-np.min(current))+np.min(current))
-plt.title("Logistic fit")
+plt.scatter(X, current, color='orange', label='Data points')
+plt.plot(X, (theta[0]/(theta[1]+theta[2]*np.exp(-theta[3]*(X-theta[4])))+theta[5])*(np.max(current)-np.min(current))+np.min(current), label='Logistic regression')
+plt.title("BFGS logistic fit")
 plt.xlabel("Days after 24th February")
 plt.ylabel("Current positive cases")
+plt.legend()
 plt.show()
 
 #Cost_history
