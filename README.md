@@ -39,8 +39,8 @@ These are the results I obtained choosing as input parameters firstly `max_iter 
 The **Logistic fit** graphs show the _data points_ as orange dots and the _logistic regression_ as a blue dashed line: at a glance, the curve fits quite well the data.
 As you can immediately notice from the **Cost history** graphs, there is no meaningful improvement in terms of value of the loss function after ~15000 iterations.
 
-![Fit_20000](https://github.com/michimichiamo/covid-logistic-bfgs/blob/master/Fit_20000.png)
-![Cost_20000](https://github.com/michimichiamo/covid-logistic-bfgs/blob/master/Cost_20000.png)
+![Fit_20000](https://github.com/michimichiamo/covid-logistic-bfgs/blob/master/images/Fit_20000.png)
+![Cost_20000](https://github.com/michimichiamo/covid-logistic-bfgs/blob/master/images/Cost_20000.png)
 ```
 Results:
 
@@ -50,8 +50,8 @@ Loss:  104709.8770002242
 Loss (rescaled data):  1.7472241874665985e-05
 Converged: False, max_iter reached.
 ```
-![Fit_30000](https://github.com/michimichiamo/covid-logistic-bfgs/blob/master/Fit_30000.png)
-![Cost_30000](https://github.com/michimichiamo/covid-logistic-bfgs/blob/master/Cost_30000.png)
+![Fit_30000](https://github.com/michimichiamo/covid-logistic-bfgs/blob/master/images/Cost_30000.png)
+![Cost_30000](https://github.com/michimichiamo/covid-logistic-bfgs/blob/master/images/Cost_30000.png)
 ```
 Results:
 
