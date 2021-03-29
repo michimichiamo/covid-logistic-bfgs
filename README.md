@@ -7,7 +7,7 @@ This repository contains a **Python** project I developed for the Optimization e
 I modelled the early evolution of COVID-19 as a logistic function with 6 parameters:
 <br><br>![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Csigma%28x%2C%5Cboldsymbol%7B%5Ctheta%7D%29%20%3D%20%5Cfrac%7B%5Ctheta_%7B0%7D%7D%7B%5Ctheta_%7B1%7D&plus;%5Ctheta_%7B2%7D*e%5E%7B-%5Ctheta_%7B3%7D*%28x-%5Ctheta_%7B4%7D%29%7D%7D&plus;%5Ctheta_%7B5%7D) <br><br>where _σ(x,θ)_ represents the number of positive cases at _x_-th day after the 24th of February.
 <br>I exploited BFGS algorithm to find the optimal parameters θ<sup>*</sup>, i.e. those that minimize the objective (_loss_) function:
-<br><br>![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Cbg_white%20loss%28%5Cboldsymbol%7Bx%7D%2C%5Cboldsymbol%7B%5Ctheta%7D%29%20%3D%20%5Cfrac%7B1%7D%7B2n%7D%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Cleft%28%5Csigma%28x_%7Bi%7D%2C%5Cboldsymbol%7B%5Ctheta%7D%29%20-%20y_%7Bi%7D%5Cright%29%7D%5E%7B2%7D)
+<br><br>![equation](https://latex.codecogs.com/png.latex?%5Clarge%20loss%28%5Cboldsymbol%7Bx%7D%2C%20%5Cboldsymbol%7B%5Ctheta%7D%29%20%3D%20%5Cfrac%7B1%7D%7B2n%7D%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%7B%28%5Csigma%28x_%7Bi%7D%2C%5Cboldsymbol%7B%5Ctheta%7D%29%20-%20y_%7Bi%7D%29%7D%5E%7B2%7D%7D)
 <br><br>![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Ctheta%5E%7B*%7D%20%3D%20%5Cunderset%7B%5Ctheta%7D%7Bmin%7D%28loss%28%5Cboldsymbol%7Bx%7D%2C%5Cboldsymbol%7B%5Ctheta%7D%29%29) <br><br>where _y_ are the data points.
 
 To implement the algorithm, I was inspired by an [article](https://aria42.com/blog/2014/12/understanding-lbfgs) on _aria42_'s blog. Though, the code included in this repository is entirely written by me.
